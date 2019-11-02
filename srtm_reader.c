@@ -54,8 +54,7 @@ int SRTM_get_elevation(float latitude, float longitude) {
         
         #else
             
-        /* 1201 for SRTM3, 3601 for SRTM1 */
-        block_size = 1201;
+        block_size = SRTM_BLOCK_SIZE;
         
         #endif
         

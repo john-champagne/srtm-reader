@@ -31,6 +31,7 @@ For more information, please refer to <https://unlicense.org>
 #define SRTM_READER_H
 
 #define SRTM_AUTO_CHECK_DATABASE
+#define SRTM_BLOCK_SIZE 3601
 
 const char* SRTM_folder = ".";
 int SRTM_get_elevation(float latitude, float longitude);
