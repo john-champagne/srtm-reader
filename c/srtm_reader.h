@@ -23,9 +23,7 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-For more information, please refer to <https://unlicense.org>
-
-*/
+For more information, please refer to <https://unlicense.org> */
 
 #ifndef SRTM_READER_H
 #define SRTM_READER_H
@@ -33,7 +31,8 @@ For more information, please refer to <https://unlicense.org>
 #define SRTM_AUTO_CHECK_DATABASE
 #define SRTM_BLOCK_SIZE 3601
 
-const char* SRTM_folder = ".";
+#define SRTM_FOLDER "/cygdrive/g/srtm"
+
 int SRTM_get_elevation(float latitude, float longitude);
 
 #endif

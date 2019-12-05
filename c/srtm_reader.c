@@ -23,9 +23,7 @@ OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-For more information, please refer to <https://unlicense.org>
-
-*/
+For more information, please refer to <https://unlicense.org> */ 
 
 #include <stdio.h>
 #include <math.h>
@@ -35,7 +33,7 @@ int SRTM_get_elevation(float latitude, float longitude) {
     /* Calculate file name */
     char filename[512];
     sprintf(filename, "%s/%c%02d%c%03d.hgt",
-                    SRTM_folder,
+                    SRTM_FOLDER,
                     (latitude >= 0) ? 'N' : 'S',
                     (int)floor(latitude),
                     (longitude >= 0) ? 'E' : 'W',
@@ -45,17 +43,14 @@ int SRTM_get_elevation(float latitude, float longitude) {
     if (file != NULL) {
         /* Automatically check for SRTM1 or SRTM3. */
         int block_size;
-        #ifdef SRTM_AUTO_CHECK_DATABASE
         
+        #ifdef SRTM_AUTO_CHECK_DATABASE
         fseek(file, 0L, SEEK_END);
         if (ftell(file) > 1201*1201*2)
             block_size = 3601;
         else block_size = 1201;
-        
         #else
-            
         block_size = SRTM_BLOCK_SIZE;
-        
         #endif
         
         int lat_row = (int)((latitude - floor(latitude)) * (block_size - 1));
@@ -73,6 +68,6 @@ int SRTM_get_elevation(float latitude, float longitude) {
 
         return (int)elevation;
     }
-    /* If the file fails to open, return void pixel */
-    return -32768;
+    /* If the file fails to open, return -32767 */
+    return -32767;
 }
